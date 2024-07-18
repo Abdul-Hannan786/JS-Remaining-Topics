@@ -183,25 +183,60 @@
 
 // ---------- Exp-5 --------- //
 
-const h1 = document.querySelector("h1");
-const inputEl1 = document.querySelector("#name");
-const inputEl2 = document.querySelector("#password");
-let allStudents = [];
+// const h1 = document.querySelector("h1");
+// const inputEl1 = document.querySelector("#name");
+// const inputEl2 = document.querySelector("#password");
+// let allStudents = [];
 
-function saveUser() {
-  let student = {
-    studentName: inputEl1.value,
-    rollNumber: inputEl2.value,
+// function saveUser() {
+//   let student = {
+//     studentName: inputEl1.value,
+//     rollNumber: inputEl2.value,
+//   };
+
+//   let savedStudents = localStorage.getItem("studentName");
+
+//   if (savedStudents) {
+//     savedStudents = JSON.parse(savedStudents);
+//     allStudents = savedStudents
+//   }
+
+//   allStudents.push(student);
+//   student = JSON.stringify(allStudents);
+//   localStorage.setItem("studentName", student);
+// }
+
+// ---------- Exp-6 --------- //
+
+// let task = document.querySelector("#task");
+let urgent = confirm("Is It urgent?");
+let time = document.querySelector("#time");
+let officeWork = confirm("Is is a office work");
+let arr = []
+
+function render() {
+    let now = new Date()
+
+  let todoObj = {
+    task: task.value,
+    urgency: urgent,
+    time: `${now.getHours()} : ${now.getMinutes(    )}` ,
+    officeWork: officeWork,
   };
 
-  let savedStudent = localStorage.getItem("studentName");
+  let savedtodos = localStorage.getItem("todoNme")
 
-  if (savedStudent) {
-    savedStudent = JSON.parse(savedStudent);
-    allStudents = savedStudent;
+  if(savedtodos){
+    savedtodos = JSON.parse(savedtodos)
+    arr = savedtodos
+    console.log(arr);
   }
 
-  allStudents.push(student);
-  student = JSON.stringify(allStudents);
-  localStorage.setItem("studentName", student);
+  arr.push(todoObj)
+  todoObj = JSON.stringify(arr)
+  localStorage.setItem("todoNme", todoObj)
 }
+
+
+
+
