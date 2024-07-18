@@ -128,7 +128,9 @@
 
 // ===============Local Storage================= //
 
-const h1 = document.querySelector("h1");
+// ---------- Exp-1 --------- //
+
+// const h1 = document.querySelector("h1");
 // const inputEl1 = document.querySelector("#name");
 // const inputEl2 = document.querySelector("#password");
 
@@ -147,11 +149,15 @@ const h1 = document.querySelector("h1");
 //   h1.innerHTML = `Name: ${stName.studentName} Roll Number: ${stName.rollNumber}`;
 // }
 
+// ---------- Exp-2 --------- //
+
 // const courseName = "Web and Mobile App Development"
 // localStorage.setItem("courseName", courseName)
 
 // const getCourse = localStorage.getItem("courseName")
 // h1.innerHTML = getCourse
+
+// ---------- Exp-3 --------- //
 
 // const user = {
 //   name: "Abdul Hannan",
@@ -161,9 +167,11 @@ const h1 = document.querySelector("h1");
 
 // localStorage.setItem("user", JSON.stringify(user));
 
-// let val = localStorage.getItem("user");
-// val = JSON.parse(val);
-// console.log(val.subjects[0]);
+// let val1 = localStorage.getItem("user");
+// val1 = JSON.parse(val1);
+// console.log(val1.subjects[0]);
+
+// ---------- Exp-4 --------- //
 
 // const fruits = ["Apple", "Banana", "Mango"]
 
@@ -172,3 +180,28 @@ const h1 = document.querySelector("h1");
 // let val = localStorage.getItem("fruit")
 // val = JSON.parse(val)
 // console.log(val);
+
+// ---------- Exp-5 --------- //
+
+const h1 = document.querySelector("h1");
+const inputEl1 = document.querySelector("#name");
+const inputEl2 = document.querySelector("#password");
+let allStudents = [];
+
+function saveUser() {
+  let student = {
+    studentName: inputEl1.value,
+    rollNumber: inputEl2.value,
+  };
+
+  let savedStudent = localStorage.getItem("studentName");
+
+  if (savedStudent) {
+    savedStudent = JSON.parse(savedStudent);
+    allStudents = savedStudent;
+  }
+
+  allStudents.push(student);
+  student = JSON.stringify(allStudents);
+  localStorage.setItem("studentName", student);
+}
